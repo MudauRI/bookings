@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Edit Booking for {{ booking.client_name }}</h2>
+    <form method="POST">
+        <label for="client_id">Client:</label>
+        <select id="client_id" name="client_id">
+            {% for client in clients %}
+                <option value="{{ client.id }}" {% if client.id == booking.client_id %}selected{% endif %}>{{ client.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="service_id">Service:</label>
+        <select id="service_id" name="service_id">
+            {% for service in services %}
+                <option value="{{ service.id }}" {% if service.name == booking.service_name %}selected{% endif %}>{{ service.name }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="booking_date">Date:</label>
+        <input type="date" id="booking_date" name="booking_date" value="{{ booking.date }}" required>
+        
+        <label for="booking_time">Time:</label>
+        <input type="time" id="booking_time" name="booking_time" value="{{ booking.time }}" required>
+
+        <button type="submit">Update Booking</button>
+    </form>
+{% endblock %}

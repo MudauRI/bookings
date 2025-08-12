@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Izra's Photography - Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">
+                <img src="{{ url_for('static', filename='images/LOGO IZRA.png') }}" alt="Izra's Photography Logo">
+                <span>Izra's Photography</span>
+            </a>
+        </div>
+        <nav>
+            <a href="/">Dashboard</a>
+            <a href="/clients">Clients</a>
+            <a href="/bookings">Bookings</a>
+            <a href="/prints">Print Orders</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>Izra's Photography</h3>
+                <p>Capturing your precious moments with passion and creativity. Based in Johannesburg, South Africa.</p>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p>Email: izra02photography@gmail.com</p>
+                <p>Phone: 082 722 2080</p>
+                <p>Website: <a href="https://izrasphotography.netlify.app/" target="_blank">www.izrasphotography.co.za</a></p>
+            </div>
+            <div class="footer-section social">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/16hvgYSS1a/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
+                        <img src="{{ url_for('static', filename='images/fb.png') }}" alt="Facebook">
+                    </a>
+                    <a href="https://www.instagram.com/izra.02_rm?igsh=YnRheGY3aXI4eDlo&utm_source=ig_contact_invite" target="_blank" aria-label="Instagram">
+                        <img src="{{ url_for('static', filename='images/ig.png') }}" alt="Instagram">
+                    </a>
+                    <a href="https://wa.me/message/TQDLYUVLUXLAA1" target="_blank" aria-label="WhatsApp">
+                        <img src="{{ url_for('static', filename='images/wa.png') }}" alt="WhatsApp">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Izra's Photography. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

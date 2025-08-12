@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Dashboard</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>Upcoming Bookings</h3>
+            <ul>
+                {% for booking in bookings %}
+                    <li>{{ booking.client_name }} - {{ booking.service_name }} on {{ booking.date }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Recent Clients</h3>
+            <ul>
+                {% for client in clients %}
+                    <li>{{ client.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

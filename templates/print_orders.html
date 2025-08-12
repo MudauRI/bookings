@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Print Orders</h2>
+    <a href="{{ url_for('add_print_order') }}">Add New Print Order</a>
+    {% if print_orders %}
+        <ul>
+            {% for order in print_orders %}
+                <li>Order #{{ order.id }} for {{ order.client_name }} - Status: {{ order.status }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No print orders found.</p>
+    {% endif %}
+{% endblock %}

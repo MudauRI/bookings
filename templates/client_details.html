@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ client.name }}</h2>
+    <p><strong>Email:</strong> {{ client.email }}</p>
+    <p><strong>Phone:</strong> {{ client.phone }}</p>
+    
+    <h3>Booking History</h3>
+    {% if bookings %}
+        <ul>
+            {% for booking in bookings %}
+                <li>{{ booking.service_name }} on {{ booking.date }} at {{ booking.time }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No bookings for this client yet.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Add New Print Order</h2>
+    <form method="POST">
+        <label for="client_id">Client:</label>
+        <select id="client_id" name="client_id" required>
+            {% for client in clients %}
+                <option value="{{ client.id }}">{{ client.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="product_id">Product:</label>
+        <select id="product_id" name="product_id" required>
+            {% for product in products %}
+                <option value="{{ product.id }}">{{ product.name }} - R{{ product.price }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+
+        <button type="submit">Place Order</button>
+    </form>
+{% endblock %}

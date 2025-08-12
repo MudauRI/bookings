@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Add New Booking</h2>
+    <form method="POST">
+        <label for="client_id">Client:</label>
+        <select id="client_id" name="client_id">
+            {% for client in clients %}
+                <option value="{{ client.id }}">{{ client.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="service_id">Service:</label>
+        <select id="service_id" name="service_id">
+            {% for service in services %}
+                <option value="{{ service.id }}">{{ service.name }} - R{{ service.price }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="booking_date">Date:</label>
+        <input type="date" id="booking_date" name="booking_date" required>
+        
+        <label for="booking_time">Time:</label>
+        <input type="time" id="booking_time" name="booking_time" required>
+
+        <button type="submit">Create Booking</button>
+    </form>
+{% endblock %}
